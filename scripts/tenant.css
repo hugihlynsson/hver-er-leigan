@@ -44,10 +44,12 @@
     right: 0;
     width: 16px;
     height: 16px;
-    overflow: hidden;
-    text-indent: 16px;
+    margin-top: 2px;
     background: var(--color-text-light);
     border-radius: 8px;
+
+    overflow: hidden;
+    text-indent: 16px;
     transition: background var(--transition-time-base);
   }
   .tenant_remove::after {
