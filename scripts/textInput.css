@@ -13,6 +13,7 @@
   position: absolute;
   top: 5px;
   right: 0;
+  pointer-events: none;
 }
 
 .textInput_input {
@@ -24,9 +25,11 @@
   font-weight: var(--font-weight-base);
   transition: border var(--transition-time-base);
 }
-
-.textInput_input:focus,
-.textInput_input:active {
+.textInput_input:not(:disabled):hover {
+  border-color: color(var(--color-highlight) blend(var(--color-grey-light) 50%));
+}
+.textInput_input:not(:disabled):focus,
+.textInput_input:not(:disabled):active {
   outline: none;
   border-color: var(--color-highlight);
 }
