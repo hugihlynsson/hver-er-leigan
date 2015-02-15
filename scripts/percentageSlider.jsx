@@ -21,10 +21,10 @@ var PercentageSlider = React.createClass({
     return (
       <div className="percentageSlider">
         <div className="percentageSlider_labelBox">
-          <Label label={`${this.props.label}: ${roundedValue}%`} name={this.props.name} />
+          <Label label={this.props.label} name={this.props.name} />
         </div>
-        
-        <div className="percentageSlider_input_box">
+
+        <div className="percentageSlider_inputBox">
           <input
             id={this.props.name}
             className="percentageSlider_input"
@@ -33,9 +33,12 @@ var PercentageSlider = React.createClass({
             max="100"
             step="1"
             name={this.props.name}
-            value={this.props.value}
+            value={roundedValue}
             onChange={this.handleChange}
           />
+          <span className="percentageSlider_value" style={{left: roundedValue + '%'}}>
+            {roundedValue}%
+          </span>
         </div>
       </div>
     );

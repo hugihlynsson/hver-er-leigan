@@ -5,6 +5,7 @@
   --font-size-small: 12px;
 
   --font-weight-base: 600;
+  --font-weight-bold: 700;
 
   --letter-spacing-loose: 0.05em;
 
@@ -16,6 +17,7 @@
   --color-text-light: #CCC;
 
   --color-white: #FFF;
+  --color-grey: #999;
   --color-grey-light: #EEE;
   --color-highlight: #4A90E2;
   --color-error: #E74C3C;
