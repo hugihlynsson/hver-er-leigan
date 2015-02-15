@@ -12,11 +12,26 @@ require('./app.css');
 var App = React.createClass({
 
   getInitialState() {
+    var lastState = localStorage.getItem('state');
+    if (lastState) {
+      return JSON.parse(lastState);
+    }
+
     return {
       totalRent: 0,
       commonProportion: 0.5,
       tenants: [this.getNewTenant()],
     };
+  },
+
+  componentWillUpdate(nextProps, nextState) {
+    // Calculate the correct rent
+    nextState.tenants = this.getTenantsUpdatedRent(
+      nextState.tenants,
+      nextState.totalRent,
+      nextState.commonProportion
+    );
+    localStorage.setItem('state', JSON.stringify(nextState));
   },
 
   render() {
@@ -65,25 +80,17 @@ var App = React.createClass({
 
   handleRentChange(totalRent) {
     var newTotalRent = totalRent ? parseInt(totalRent) : 0;
-    this.setState({
-      totalRent: newTotalRent,
-      tenants: this.getTenantsUpdatedRent(this.state.tenants, newTotalRent, this.state.commonProportion),
-    });
+    this.setState({totalRent: newTotalRent});
   },
 
   handlePropotionChange(propotion) {
-    this.setState({
-      commonProportion: propotion/100,
-      tenants: this.getTenantsUpdatedRent(this.state.tenants, this.state.totalRent, propotion/100),
-    });
+    this.setState({commonProportion: propotion/100});
   },
 
   handleUpdateTenant(tenant, index) {
     var tenants = this.state.tenants;
     tenants[index] = tenant;
-    this.setState({
-      tenants: this.getTenantsUpdatedRent(tenants, this.state.totalRent, this.state.commonProportion),
-    });
+    this.setState({tenants});
   },
 
   handleRemoveTenant(index) {
@@ -92,18 +99,14 @@ var App = React.createClass({
     if (tenants.length === 0) {
       tenants.push(this.getNewTenant());
     }
-    this.setState({
-      tenants: this.getTenantsUpdatedRent(tenants, this.state.totalRent, this.state.commonProportion),
-    });
+    this.setState({tenants});
   },
 
   handleAddTenant(event) {
     event.preventDefault();
     var tenants = this.state.tenants;
     tenants.push(this.getNewTenant());
-    this.setState({
-      tenants: this.getTenantsUpdatedRent(tenants, this.state.totalRent, this.state.commonProportion),
-    });
+    this.setState({tenants});
   },
 
   getTenantsUpdatedRent(tenants, totalRent, commonProportion) {
