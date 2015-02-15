@@ -40,11 +40,10 @@
 
   .tenant_remove {
     position: absolute;
-    top: 50%;
+    bottom: 12px;
     right: 0;
     width: 16px;
     height: 16px;
-    margin-top: 2px;
     background: var(--color-text-light);
     border-radius: 8px;
 
@@ -64,7 +63,16 @@
     margin-right: -6px;
     background: var(--color-white);
   }
+  .tenant_remove:focus,
   .tenant_remove:hover {
     background: var(--color-error);
+  }
+
+  /* Major hack to not display but first row of tenants */
+  .tenant .textInput {
+    margin-top: 0.3em;
+  }
+  .tenant:not(:first-of-type) .textInput_labelBox {
+    display: none;
   }
 }

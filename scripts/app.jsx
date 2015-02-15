@@ -24,32 +24,41 @@ var App = React.createClass({
     return (
       <div className="app">
         <h1 className="app_header">Hver er leigan?</h1>
-        <TextInput
-          label="Heildar leiga"
-          value={this.state.totalRent}
-          extra="kr."
-          name="totelRent"
-          onChange={this.handleRentChange}
-          type="number"
-        />
-        <PercentageSlider
-          label="Hlutfall sameignar"
-          value={this.state.commonProportion * 100}
-          name="commonProportion"
-          onChange={this.handlePropotionChange}
-        />
-        <p>Leigjendur</p>
-        {this.state.tenants.map((tenant, index) =>
-          <Tenant
-            key={index}
-            tenant={tenant}
-            onChange={(tenant) => this.handleUpdateTenant(tenant, index)}
-            onRemove={() => this.handleRemoveTenant(index)}
+
+        <div className="app_totalRent">
+          <TextInput
+            label="Heildar leiga"
+            value={this.state.totalRent}
+            extra="kr."
+            name="totelRent"
+            onChange={this.handleRentChange}
+            type="number"
           />
-        )}
-        <a href="#" className="app_addTenant" onClick={this.handleAddTenant}>
-          Bæta við leigjanda
-        </a>
+        </div>
+
+        <div className="app_commonProportion">
+          <PercentageSlider
+            label="Hlutfall sameignar"
+            value={this.state.commonProportion * 100}
+            name="commonProportion"
+            onChange={this.handlePropotionChange}
+          />
+        </div>
+
+        <div className="app_tenants">
+          <p className="app_tenants_header">Leigjendur</p>
+          {this.state.tenants.map((tenant, index) =>
+            <Tenant
+              key={index}
+              tenant={tenant}
+              onChange={(tenant) => this.handleUpdateTenant(tenant, index)}
+              onRemove={() => this.handleRemoveTenant(index)}
+            />
+          )}
+          <a href="#" className="app_addTenant" onClick={this.handleAddTenant}>
+            Bæta við leigjanda
+          </a>
+        </div>
       </div>
     );
   },

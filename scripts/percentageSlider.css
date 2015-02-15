@@ -2,17 +2,17 @@
 @import 'variables.css';
 
 .percentageSlider {
+  margin-top: 1em;
 }
 
-.percentageSlider_input_box {
-
+.percentageSlider_labelBox {
+  margin-bottom: 6px;
 }
 
 .percentageSlider_input {
   position: relative;
   height: 4px;
   width: 100%;
-  max-width: 280px;
 
   border-radius: 4px;
   background: var(--color-grey-light);

@@ -6,22 +6,25 @@
   position: relative;
 }
 
+.textInput_labelBox {
+  margin-bottom: 6px;
+}
+
 .textInput_inputBox {
   position: relative;
   width: 100%;
-  max-width: 280px;
 }
 
 .textInput_extra {
   position: absolute;
-  top: 5px;
+  top: 0;
   right: 0;
   pointer-events: none;
 }
 
 .textInput_input {
   width: 100%;
-  padding: 4px 0 0;
+  padding: 0 22px 0 0;
   border: 0;
   border-bottom: 2px solid var(--color-grey-light);
 
@@ -29,6 +32,7 @@
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-base);
   transition: border var(--transition-time-base);
+  color: var(--color-text-black);
 }
 .textInput_input:not(:disabled):hover {
   border-color: color(var(--color-highlight) blend(var(--color-grey-light) 50%));
@@ -45,6 +49,7 @@
     bottom: 7px;
     left: 0;
     width: 30%;
+    margin-bottom: 0;
     padding-right: 0.5em;
   }
   .textInput_inputBox-left {

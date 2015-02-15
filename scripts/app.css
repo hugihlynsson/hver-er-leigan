@@ -14,6 +14,7 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-base);
+  color: var(--color-text-black);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -36,6 +37,11 @@ body {
   margin: 2em 0 1em;
   font-weight: var(--font-weight-base);
   font-size: var(--font-size-huge);
+}
+
+.app_tenants_header {
+  clear: both;
+  padding-top: 1.5em;
 }
 
 .app_addTenant {
@@ -76,5 +82,21 @@ body {
   .app {
     max-width: 480px;
     margin: 0 auto;
+  }
+
+  .app_totalRent {
+    float: left;
+    width: 50%;
+    padding-right: 3%;
+  }
+
+  .app_commonProportion {
+    float: left;
+    width: 50%;
+    padding-left: 3%;
+  }
+
+  .app_tenants {
+
   }
 }
