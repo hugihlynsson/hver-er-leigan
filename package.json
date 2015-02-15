@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "A simple rent calculator",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "NODE_ENV=production webpack -p --progress scripts/app.jsx bundle.js"
   },
   "author": {
     "name": "Hugi Hlynsson",
