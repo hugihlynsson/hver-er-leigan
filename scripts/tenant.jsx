@@ -63,21 +63,18 @@ var Tenant = React.createClass({
   },
 
   handleNameChange(value) {
-    console.log('Tenant: changing name');
     var tenant = this.props.tenant;
     tenant.name = value;
     this.props.onChange(tenant);
   },
 
   handleProportionChange(value) {
-    console.log('Tenant: changing proportion');
     var tenant = this.props.tenant;
-    tenant.proportion = value;
+    tenant.proportion = value ? parseInt(value) : undefined;
     this.props.onChange(tenant);
   },
 
   handleRemove(event) {
-    console.log('Tenant: removing');
     event.preventDefault();
     this.props.onRemove();
   },

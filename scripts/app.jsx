@@ -76,10 +76,10 @@ var App = React.createClass({
   },
 
   handleRentChange(totalRent) {
-    var newTotalRent = parseInt(totalRent);
+    var newTotalRent = totalRent ? parseInt(totalRent) : 0;
     this.setState({
       totalRent: newTotalRent,
-      tenants: this.getTenantsUpdatedRent(this.state.tenants, newTotalRent, this.state.proportion),
+      tenants: this.getTenantsUpdatedRent(this.state.tenants, newTotalRent, this.state.commonProportion),
     });
   },
 
@@ -99,7 +99,6 @@ var App = React.createClass({
   },
 
   handleRemoveTenant(index) {
-    console.log('removing tenant', index);
     var tenants = this.state.tenants;
     tenants.splice(index, 1);
     if (tenants.length === 0) {
@@ -112,7 +111,6 @@ var App = React.createClass({
 
   handleAddTenant(event) {
     event.preventDefault();
-    console.log('adding tenant');
     var tenants = this.state.tenants;
     tenants.push(this.getNewTenant());
     this.setState({
@@ -121,16 +119,13 @@ var App = React.createClass({
   },
 
   getTenantsUpdatedRent(tenants, totalRent, commonProportion) {
-    var totalProportion = tenants.reduce((value, tenant) => (
+    var validTenantsCount = tenants.filter(tenant => !!tenant.proportion).length;
+    var partsCount = tenants.reduce((value, tenant) => (
       tenant.proportion ? value + parseInt(tenant.proportion) : value
     ), 0);
 
-    var commonPart = totalRent * commonProportion / tenants.filter(tenant => !!tenant.proportion).length;
-    var proportionalPart = totalRent * (1 - commonProportion) / totalProportion;
-
-    console.log('totalProportion:', totalProportion);
-    console.log('commonPart:', commonPart);
-    console.log('proportionalPart:', proportionalPart);
+    var commonPart = totalRent * commonProportion / validTenantsCount;
+    var proportionalPart = totalRent * (1 - commonProportion) / partsCount;
 
     tenants = tenants.map(tenant => {
       tenant.rent = tenant.proportion ? commonPart + proportionalPart * tenant.proportion : undefined;
