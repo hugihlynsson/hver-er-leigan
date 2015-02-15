@@ -1,9 +1,12 @@
 
-.textInput {
+@import 'variables.css';
 
+.textInput {
+  margin: 1em 0 0.5em;
+  position: relative;
 }
 
-.textInput_box {
+.textInput_inputBox {
   position: relative;
   width: 100%;
   max-width: 280px;
@@ -18,9 +21,11 @@
 
 .textInput_input {
   width: 100%;
-  padding: 4px 0;
+  padding: 4px 0 0;
   border: 0;
   border-bottom: 2px solid var(--color-grey-light);
+
+  font-family: var(--font-family);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-base);
   transition: border var(--transition-time-base);
@@ -32,4 +37,18 @@
 .textInput_input:not(:disabled):active {
   outline: none;
   border-color: var(--color-highlight);
+}
+
+@media (--narrow) {
+  .textInput_labelBox-left {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    width: 30%;
+    padding-right: 0.5em;
+  }
+  .textInput_inputBox-left {
+    float: right;
+    width: 70%;
+  }
 }

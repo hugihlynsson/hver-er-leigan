@@ -4,6 +4,7 @@ var React = require('react');
 var props = React.PropTypes;
 var Label = require('./label');
 
+require('./percentageSlider.css');
 
 var PercentageSlider = React.createClass({
 

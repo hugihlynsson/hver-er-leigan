@@ -5,7 +5,8 @@ var TextInput = require('./textInput');
 var PercentageSlider = require('./percentageSlider');
 var Tenant = require('./tenant');
 
-require('./styles.css');
+require('./variables.css');
+require('./app.css');
 
 
 var App = React.createClass({

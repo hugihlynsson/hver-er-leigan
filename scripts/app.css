@@ -1,11 +1,39 @@
 
+@import 'variables.css';
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.u-clearfix::after {
+   visibility: hidden;
+   display: block;
+   font-size: 0;
+   content: " ";
+   clear: both;
+   height: 0;
+}
+
 .app {
   margin: 20px;
   background: var(--color-white);
 }
 
 .app_header {
-  margin: 1em 0;
+  margin: 2em 0 1em;
   font-weight: var(--font-weight-base);
   font-size: var(--font-size-huge);
 }
@@ -35,4 +63,11 @@
 .app_addTenant:focus {
   outline: none;
   color: var(--color-text-highlight);
+}
+
+@media (--large) {
+  .app {
+    max-width: 480px;
+    margin: 0 auto;
+  }
 }

@@ -4,6 +4,8 @@ var React = require('react');
 var props = React.PropTypes;
 var TextInput = require('./textInput');
 
+require('./tenant.css');
+
 
 var Tenant = React.createClass({
 
@@ -17,32 +19,46 @@ var Tenant = React.createClass({
 
   render() {
     return (
-      <div className="tenant">
-        <TextInput
-          label="Nafn"
-          value={this.props.tenant.name}
-          onChange={this.handleNameChange}
-          name="nafn"
-          type="number"
-        />
-        <TextInput
-          label="Stærð herbergis"
-          value={this.props.tenant.proportion}
-          extra="fm"
-          onChange={this.handleProportionChange}
-          name="proportion"
-          type="number"
-        />
-        <TextInput
-          label="Reiknuð leiga"
-          value={this.props.tenant.rent && Math.round(this.props.tenant.rent) + ' kr.'}
-          name="rent"
-          type="number"
-          disabled
-        />
-        <a href="#" className="tenant_remove" onClick={this.handleRemove}>
+      <div className="tenant u-clearfix">
+
+        <div className="tenant_input">
+          <TextInput
+            label="Nafn"
+            value={this.props.tenant.name}
+            onChange={this.handleNameChange}
+            name="nafn"
+            type="number"
+            labelStyle="left"
+          />
+        </div>
+
+        <div className="tenant_input">
+          <TextInput
+            label="Stærð herbergis"
+            value={this.props.tenant.proportion}
+            extra="fm"
+            onChange={this.handleProportionChange}
+            name="proportion"
+            type="number"
+            labelStyle="left"
+          />
+        </div>
+
+        <div className="tenant_input">
+          <TextInput
+            label="Reiknuð leiga"
+            value={this.props.tenant.rent && Math.round(this.props.tenant.rent) + ' kr.'}
+            name="rent"
+            type="number"
+            labelStyle="left"
+            disabled
+          />
+        </div>
+
+        <a href="#" className="tenant_remove" onClick={this.handleRemove} title="Fjarlægja leigjanda">
           Fjarlægja leigjanda
         </a>
+
       </div>
     );
   },
@@ -55,7 +71,8 @@ var Tenant = React.createClass({
 
   handleProportionChange(value) {
     var tenant = this.props.tenant;
-    tenant.proportion = value ? parseInt(value) : undefined;
+    var number = parseInt(value);
+    tenant.proportion = value && !isNaN(number) ? number : undefined;
     this.props.onChange(tenant);
   },
 

@@ -1,4 +1,6 @@
 
+@import 'variables.css';
+
 .percentageSlider {
 }
 
@@ -9,9 +11,12 @@
 .percentageSlider_input {
   position: relative;
   height: 4px;
+  width: 100%;
+  max-width: 280px;
+
   border-radius: 4px;
-  -webkit-appearance: none;
   background: var(--color-grey-light);
+  -webkit-appearance: none;
   transition: background var(--transition-time-base);
 }
 .percentageSlider_input:active,

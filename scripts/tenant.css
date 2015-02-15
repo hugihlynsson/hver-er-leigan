@@ -1,5 +1,8 @@
 
+@import 'variables.css';
+
 .tenant {
+  position: relative;
   margin-bottom: 2em;
 }
 
@@ -12,9 +15,54 @@
   text-transform: uppercase;
   transition: color var(--transition-time-base);
 }
-
 .tenant_remove:hover,
 .tenant_remove:focus {
   outline: none;
-  color: var(--color-text-highlight);
+  color: var(--color-text-error);
+}
+
+@media (--narrow) {
+  .tenant_remove {
+    margin-left: 30%;
+  }
+}
+
+@media (--large) {
+  .tenant {
+    margin-bottom: 0;
+  }
+
+  .tenant_input {
+    width: 33%;
+    float: left;
+    padding-right: 1em;
+  }
+
+  .tenant_remove {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    text-indent: 16px;
+    background: var(--color-text-light);
+    border-radius: 8px;
+    transition: background var(--transition-time-base);
+  }
+  .tenant_remove::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 12px;
+    height: 2px;
+    margin-top: -1px;
+    margin-right: -6px;
+    background: var(--color-white);
+  }
+  .tenant_remove:hover {
+    background: var(--color-error);
+  }
 }

@@ -1,10 +1,19 @@
 
+@import 'variables.css';
+
 .label {
   display: block;
   color: var(--color-text-light);
   font-size: var(--font-size-small);
   letter-spacing: var(--letter-spacing-loose);
+  line-height: var(--line-height-narrow);
   text-transform: uppercase;
   text-decoration: none;
   transition: color var(--transition-time-base);
+}
+
+@media (--narrow) {
+  .label-left {
+    text-align: right;
+  }
 }

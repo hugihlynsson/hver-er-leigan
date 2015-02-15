@@ -1,0 +1,27 @@
+:root {
+  --font-family: 'Avenir Next';
+  --font-size-huge: 36px;
+  --font-size-base: 16px;
+  --font-size-small: 12px;
+
+  --font-weight-base: 600;
+
+  --letter-spacing-loose: 0.05em;
+
+  --line-height-narrow: 1em;
+
+  --color-text-black: #333;
+  --color-text-highlight: #4A90E2;
+  --color-text-error: #E74C3C;
+  --color-text-light: #CCC;
+
+  --color-white: #FFF;
+  --color-grey-light: #EEE;
+  --color-highlight: #4A90E2;
+  --color-error: #E74C3C;
+
+  --transition-time-base: 0.2s;
+}
+
+@custom-media --narrow screen and (max-width: 500px);
+@custom-media --large screen and (min-width: 501px);
