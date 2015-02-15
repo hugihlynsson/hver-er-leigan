@@ -3,7 +3,6 @@
 var React = require('react');
 var props = React.PropTypes;
 var TextInput = require('./textInput');
-var css = require('./css');
 
 
 var Tenant = React.createClass({
@@ -17,22 +16,8 @@ var Tenant = React.createClass({
   },
 
   render() {
-
-    var styles = {
-      tenant: {
-        marginBottom: '2em',
-      },
-      remove: {
-        display: 'block',
-        color: css.color.text.light,
-        fontSize: css.fontSize.small,
-        letterSpacing: css.letterSpacing.loose,
-        textTransform: 'uppercase',
-      },
-    };
-
     return (
-      <div style={styles.tenant}>
+      <div className="tenant">
         <TextInput
           label="Nafn"
           value={this.props.tenant.name}
@@ -50,12 +35,12 @@ var Tenant = React.createClass({
         />
         <TextInput
           label="Reiknuð leiga"
-          value={this.props.tenant.rent && this.props.tenant.rent + ' kr.'}
+          value={this.props.tenant.rent && Math.round(this.props.tenant.rent) + ' kr.'}
           name="rent"
           type="number"
           disabled
         />
-        <a href="#" style={styles.remove} onClick={this.handleRemove}>
+        <a href="#" className="tenant_remove" onClick={this.handleRemove}>
           Fjarlægja leigjanda
         </a>
       </div>

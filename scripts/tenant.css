@@ -1,0 +1,20 @@
+
+.tenant {
+  margin-bottom: 2em;
+}
+
+.tenant_remove {
+  display: block;
+  color: var(--color-text-light);
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-loose);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color var(--transition-time-base);
+}
+
+.tenant_remove:hover,
+.tenant_remove:focus {
+  outline: none;
+  color: var(--color-text-highlight);
+}

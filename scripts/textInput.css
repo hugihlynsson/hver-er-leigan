@@ -1,0 +1,32 @@
+
+.textInput {
+
+}
+
+.textInput_box {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+}
+
+.textInput_extra {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
+.textInput_input {
+  width: 100%;
+  padding: 4px 0;
+  border: 0;
+  border-bottom: 2px solid var(--color-grey-light);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-base);
+  transition: border var(--transition-time-base);
+}
+
+.textInput_input:focus,
+.textInput_input:active {
+  outline: none;
+  border-color: var(--color-highlight);
+}

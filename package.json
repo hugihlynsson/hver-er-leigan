@@ -11,12 +11,21 @@
     "website": "http://hugihlynsson.com"
   },
   "devDependencies": {
+    "autoprefixer-loader": "^1.1.0",
+    "css-loader": "^0.9.1",
     "jsx-loader": "^0.12.2",
     "react-hot-loader": "^1.1.1",
+    "rework": "^1.0.1",
+    "rework-color-function": "^1.2.0",
+    "rework-custom-media": "^0.2.0",
+    "rework-import": "^2.0.1",
+    "rework-loader": "^0.1.1",
+    "rework-vars": "^3.1.1",
     "webpack": "^1.5.1",
     "webpack-dev-server": "1.6.4"
   },
   "dependencies": {
-    "react": "^0.12.0"
+    "react": "^0.12.0",
+    "style-loader": "^0.8.3"
   }
 }

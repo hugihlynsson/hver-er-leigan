@@ -1,0 +1,38 @@
+
+.app {
+  margin: 20px;
+  background: var(--color-white);
+}
+
+.app_header {
+  margin: 1em 0;
+  font-weight: var(--font-weight-base);
+  font-size: var(--font-size-huge);
+}
+
+.app_addTenant {
+  display: inline-block;
+  color: var(--color-text-light);
+  letter-spacing: var(--letter-spacing-loose);
+  text-transform: uppercase;
+  font-size: var(--font-size-small);
+  transition: color var(--transition-time-base);
+  text-decoration: none;
+}
+.app_addTenant::before,
+.add_addTenant::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 2px;
+  margin-right: 10px;
+  background: var(--color-highlight);
+}
+.add_addTenant::after {
+  transform: rotate(90deg);
+}
+.app_addTenant:hover,
+.app_addTenant:focus {
+  outline: none;
+  color: var(--color-text-highlight);
+}

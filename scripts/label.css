@@ -1,0 +1,10 @@
+
+.label {
+  display: block;
+  color: var(--color-text-light);
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-loose);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color var(--transition-time-base);
+}

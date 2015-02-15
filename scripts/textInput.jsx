@@ -3,7 +3,6 @@
 var React = require('react');
 var props = React.PropTypes;
 var Label = require('./label');
-var css = require('./css');
 
 
 var TextInput = React.createClass({
@@ -26,43 +25,16 @@ var TextInput = React.createClass({
   },
 
   render() {
-
-    var styles = {
-      inputBox: {
-        position: 'relative',
-        width: '100%',
-        maxWidth: 280,
-      },
-      input: {
-        width: '100%',
-        paddingBottom: 4,
-        paddingTop: 4,
-        paddingRight: 30,
-        border: 0,
-        borderBottomWidth: 2,
-        borderBottomStyle: 'solid',
-        borderBottomColor: css.color.grey.light,
-        boxSizing: 'border-box',
-        fontSize: css.fontSize.base,
-        fontWeight: css.fontWeight.base,
-      },
-      extra: {
-        position: 'absolute',
-        right: 0,
-        top: 5,
-      },
-    };
-
     return (
-      <div>
+      <div className="textInput">
         <Label label={this.props.label} name={this.props.name} />
-        <div style={styles.inputBox}>
+        <div className="textInput_box">
           {this.props.extra &&
-            <span style={styles.extra}>{this.props.extra}</span>
+            <span className="textInput_extra">{this.props.extra}</span>
           }
           <input
             id={this.props.name}
-            style={styles.input}
+            className="textInput_input"
             type="text"
             name={this.props.name}
             value={this.props.value}

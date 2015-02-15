@@ -1,0 +1,21 @@
+
+.percentageSlider {
+}
+
+.percentageSlider_input_box {
+
+}
+
+.percentageSlider_input {
+  position: relative;
+  height: 4px;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  background: var(--color-grey-light);
+  transition: background var(--transition-time-base);
+}
+.percentageSlider_input:active,
+.percentageSlider_input:focus {
+  outline: 0;
+  background: var(--color-highlight);
+}

@@ -5,7 +5,7 @@ var TextInput = require('./textInput');
 var PercentageSlider = require('./percentageSlider');
 var Tenant = require('./tenant');
 
-var css = require('./css');
+require('./styles.css');
 
 
 var App = React.createClass({
@@ -19,32 +19,10 @@ var App = React.createClass({
   },
 
   render() {
-    var styles = {
-      container: {
-        margin: 20,
-        boxSizing: 'border-box',
-        fontFamily: css.fontFamily,
-        fontSize: css.fontSize.base,
-        fontWeight: css.fontWeight.base,
-        WebkitFontSmoothing: 'antialiased',
-      },
-      header: {
-        margin: '1em 0',
-        fontSize: css.fontSize.huge,
-        fontWeight: css.fontWeight.base,
-      },
-      addTenant: {
-        display: 'block',
-        color: css.color.text.light,
-        fontSize: css.fontSize.small,
-        letterSpacing: css.letterSpacing.loose,
-        textTransform: 'uppercase',
-      },
-    };
 
     return (
-      <div style={styles.container}>
-        <h1 style={styles.header}>Hver er leigan?</h1>
+      <div className="app">
+        <h1 className="app_header">Hver er leigan?</h1>
         <TextInput
           label="Heildar leiga"
           value={this.state.totalRent}
@@ -68,7 +46,7 @@ var App = React.createClass({
             onRemove={() => this.handleRemoveTenant(index)}
           />
         )}
-        <a href="#" style={styles.addTenant} onClick={this.handleAddTenant}>
+        <a href="#" className="app_addTenant" onClick={this.handleAddTenant}>
           Bæta við leigjanda
         </a>
       </div>
